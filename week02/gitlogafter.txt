@@ -1,0 +1,5 @@
+commit 9dfc8a95feaac8f4435b76cc6fbb94d426bb197e
+Author: ychan1-matc <ychan1@madisoncollege.edu>
+Date:   Thu Jan 30 23:21:19 2025 -0600
+
+    Initial commit of Using Git with GitHub Assignment
