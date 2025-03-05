@@ -12,11 +12,11 @@ with open("05_CP-Access.log") as hFile:
  
 listLogLines = strLogLines.split('\n')
 
-with open("courseProjectWk05Anlysis.txt", "w") as wrapperLogFile:
+with open("courseProjectWk05Analysis.txt", "w") as wrapperLogFile:
 
     for strLogLine in listLogLines:
         listLogLine = strLogLine.split(" ")
-        strIPReturnCode = f"{listLogLine[0]}" + " - " + f" {listLogLine[8]}"
+        strIPReturnCode = f"{listLogLine[0]} - {listLogLine[8]}"
         print(strIPReturnCode)
         wrapperLogFile.write(f"{strIPReturnCode}\n")
 
