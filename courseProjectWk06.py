@@ -8,20 +8,12 @@ an Apache web log to determine current threats>
 import sys
 
 
-if len(sys.argv) == 1:
-    strUserInput = input("Would you like to continue? (y/n)\n>>>") 
-    if strUserInput.lower() in ['y', 'yes', 'yep', 'yup', 'yeah']:
-        varSwitch = True
-    else:
-        varSwitch = False
-
-elif f"{sys.argv[1]}".lower() in ['y', 'yes', 'yep', 'yup', 'yeah']:
-    varSwitch = True
+if len(sys.argv) > 1:
+    strUserInput =f"{sys.argv[1]}"
 else:
-    varSwitch = False
+    strUserInput = input("Would you like to continue? (y/n)\n>>>") 
 
-
-if varSwitch == True:
+if strUserInput.lower() in ['y', 'yes', 'yep', 'yup', 'yeah']:s
     with open("06_CP-Access.log") as hFile:
         strLogLines = hFile.read()
     listLogLines = strLogLines.split('\n')
