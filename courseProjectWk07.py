@@ -33,11 +33,10 @@ if strUserInput.lower() in ['y', 'yes', 'yep', 'yup', 'yeah']:
                 dictLogSummary[strIP] = intCounter
             else:
                 dictLogSummary[strIP] = 1
-        print(dictLogSummary)
         with open("courseProjectWk07Analysis.csv", "w") as wrapperLogFile:
-            wrapperLogFile.write(f"IP Address,Hits")
+            wrapperLogFile.write(f"IP Address,Hits\n")
             for strIP, intCounter in dictLogSummary.items():
                 if intCounter >= 5:
-                    wrapperLogFile.write(f"{strIP},{intCounter}")
+                    wrapperLogFile.write(f"{strIP},{intCounter}\n")
 
 
