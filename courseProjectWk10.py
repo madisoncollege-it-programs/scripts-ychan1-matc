@@ -15,15 +15,13 @@ import subprocess
 
 def ipAddressCount(inApacheLogFileName):
     command = f"cat {inApacheLogFileName} | cut -d ' ' -f1 | sort -n | uniq -c | sort -n | tail -n5"
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    output, error = process.communicate()
+    process = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
+    output = process.stdout.decode()
     return output
 
 
 
 def main(): 
-
-
     if len(sys.argv) > 1:
         strUserInput =f"{sys.argv[1]}"
     else:
@@ -33,6 +31,7 @@ def main():
         with open("courseProjectWk10Analysis.txt", "w") as wrapperLogFile:
             strLogLines = ipAddressCount("06_CP-Access.log")
             wrapperLogFile.write(strLogLines)
+            #reserved for maybe future use
             """
             listLogLines = strLogLines.split('\n')
             for strLogLine in listLogLines:
@@ -42,5 +41,6 @@ def main():
                 strErrorCount = f"{listLogLine[0]}" 
             """
         print(strLogLines)
+
 if __name__ == "__main__":
     main()
