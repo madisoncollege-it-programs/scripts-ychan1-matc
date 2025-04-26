@@ -46,16 +46,15 @@ def main():
 
 
     if args.outfilename:
-        print(strLogLines)
         with open(args.outfilename, "w") as wrapperLogFile:
             wrapperLogFile.write(strLogLines)
-    else:
-        htmlResponse = ipLookup(strMostRequestsIP)
-        myHTML = bs4.BeautifulSoup(htmlResponse, features="html.parser")
-        listRawIpInfo = myHTML.find_all("dd", class_="col-8 text-monospace")
-        print(strMostRequestsIP)
-        print("Provider:", listRawIpInfo[7].text, "(ASN: ", listRawIpInfo[8].text, ")")
-        print("City, State:", listRawIpInfo[0].text, listRawIpInfo[1].text)
+
+    htmlResponse = ipLookup(strMostRequestsIP)
+    myHTML = bs4.BeautifulSoup(htmlResponse, features="html.parser")
+    listRawIpInfo = myHTML.find_all("dd", class_="col-8 text-monospace")
+    print(strMostRequestsIP)
+    print("Provider:", listRawIpInfo[-2].text, "(ASN: ", listRawIpInfo[-1].text, ")")
+    print("City, State:", listRawIpInfo[0].text, listRawIpInfo[1].text)
 
     
 
